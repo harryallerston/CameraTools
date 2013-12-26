@@ -1,0 +1,19 @@
+#! /bin/bash
+#
+
+directory=$(zenity --title "Select directory containing images" --file-selection --directory)
+	cd $directory
+	mkdir ./WEB	
+	size=$(zenity --scale --step=500 --value=1000 --min-value=0 --max-value=3000 --text="How many pixels should the new image be? (long edge)"
+)	
+	for i in $(ls *.JPG); 
+		do convert -verbose -resize $size $i re_$i; 
+		mv re_* ./WEB	
+	done | zenity --progress --auto-kill --width 350 --pulsate  --text "Resizing Images" --title "Camera Import"
+	
+	for i in $(ls *.jpg); 
+		do convert -verbose -resize $size $i re_$i; 
+		mv re_* ./WEB	
+	done | zenity --progress --auto-kill --width 350 --pulsate --text "Resizing Images" --title "Camera Import"
+
+zenity --info --text "Resizing complete!"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Camera Import Wizard     
+Comment=Quickly copy RAW and JPEG files from your camera's SD card into organised folders
+Exec=/usr/bin/camera-import-gtk %F
+Icon=/usr/share/icons/emblem-photos.png
+Terminal=false
+Type=Application
+Categories=Graphics;Photography;

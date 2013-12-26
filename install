@@ -1,0 +1,38 @@
+#! /bin/bash
+#
+
+user=$(whoami)
+clear
+zenity --info --text "
+Welcome! 
+Please follow the instructions to 
+install and configure Camera Tools:"
+
+sudo cp -v ./camera-import-gtk ./image-resize-gtk ./photo-backup /usr/bin
+
+sudo cp -v ./camera-import-gtk.desktop ./image-resize-gtk.desktop ./photo-backup.desktop /usr/share/applications
+
+sudo cp -v ./emblem-photos.png /usr/share/icons
+
+mkdir /home/$user/.CameraTools
+touch /home/$user/.CameraTools/backup
+clear
+sudo apt-get install imagemagick 
+clear
+
+zenity --info --text "Please select path to SD Card:"
+SD=$(zenity --title "Select Path to SD card" --file-selection --directory)
+echo $SD > /home/$user/.CameraTools/SDcard
+	
+	
+zenity --info --text "Please select path to desired Pictures folder:"
+SD=$(zenity --title "Select Path to Pictures folder" --file-selection --directory)
+echo $SD > /home/$user/.CameraTools/PicturesPath
+
+
+
+zenity --info --text "
+Finished! Programs can be 
+launched from your applications menu"
+
+

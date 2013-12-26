@@ -1,0 +1,61 @@
+#! /bin/bash
+#
+#-------------------------------------------------------------
+#---------- Camera Import and resize script ------------------
+#------------------ Harry Allerston 2013 ---------------------
+#-------------------------------------------------------------
+
+user=$(whoami)
+backup=$(head /home/$user/.CameraTools/backup)
+pictures=$(head /home/$user/.CameraTools/PicturesPath)
+
+menuoption=$(zenity --entry --title "Welcome to Camera Tools" --text "
+==================================
+       Photo Backup v1.0 
+==================================
+
+Select Menu Option :
+
+1) Import JPEG images from SD card
+
+2) Import RAW images from SD card
+
+3) Clear SD Card
+
+4) Exit
+
+=================================="
+)
+
+
+### Import JPEG from SD card###
+if [ "$menuoption" = "1" ]; then
+    
+  
+fi
+
+
+
+## Edit path to backup ##
+if [ "$menuoption" = "2" ]; then
+    backup=$(zenity --title "Select Path to backup location" --file-selection --directory)
+    echo $backup > /home/$user/.CameraTools/backup
+	exec camera-import-gtk
+fi
+
+
+## Edit path to Pictures folder ##
+if [ "$menuoption" = "3" ]; then
+	SD=$(zenity --title "Select Path to Pictures folder" --file-selection --directory)
+    echo $SD > /home/$user/.CameraTools/PicturesPath	
+	exec camera-import-gtk
+fi
+
+
+## Exit Program ##
+if [ "$menuoption" = "4" ]; then
+	exit
+fi
+
+
+

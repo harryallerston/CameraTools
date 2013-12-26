@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Express Photo Backup      
+Comment=Quickly copy the contents of the "Pictures" folder to a set backup location, ignoring previously copied files
+Exec=/usr/bin/photo-backup %F
+Icon=/usr/share/icons/emblem-photos.png
+Terminal=false
+Type=Application
+Categories=Graphics;Photography;

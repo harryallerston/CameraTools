@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Image Resizing Tool    
+Comment=Quickly resize all JPEG files in a folder to smaller dimensions for web upload
+Exec=/usr/bin/image-resize-gtk %F
+Terminal=false
+Icon=/usr/share/icons/emblem-photos.png
+Type=Application
+Categories=Graphics;Photography;

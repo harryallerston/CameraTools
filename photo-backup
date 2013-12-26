@@ -1,0 +1,15 @@
+#! /bin/bash
+#
+
+user=$(whoami)
+
+backup=$(head /home/$user/.CameraTools/backup)
+
+cp -v -r -u /home/harry/Pictures/* $backup | \
+zenity --progress --no-cancel --auto-close --width 350 --pulsate --title "Photo backup" --text "Backing up Photos, please do not cancel"
+
+zenity  --notification --title --no-cancel "Backup Complete!" --text "
+Photos have been automatically backed up to
+--->  $backup"
+
+exit
