@@ -1,6 +1,10 @@
 #! /bin/bash
 #
 
+echo "installing dependencies"
+
+sudo apt-get install zenity
+
 user=$(whoami)
 clear
 zenity --info --text "
